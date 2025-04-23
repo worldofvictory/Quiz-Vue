@@ -7,5 +7,14 @@
     {
       "path": "./tsconfig.app.json"
     }
-  ]
+  ],
+  
+"compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true, // Also recommended when using import statements
+    "module": "ESNext",      // or "CommonJS" depending on your setup
+    "target": "ES6",          // or higher
+    "moduleResolution": "Node"
+  }
+  
 }

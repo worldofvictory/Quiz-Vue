@@ -1,15 +1,30 @@
-<script setup lang="ts">
 
+<script setup lang="ts">
+import q from "./data/quizes.json";
+import {ref} from "vue";
+
+const quizes = ref(q);
+const search = ref("");
 </script>
 
 <template>
   <div class="container">
     <header class="header">
       <h1 class="header-title">Quizes</h1>
-      <input type="text" placeholder="Search" class="header-input">
+      <input type="text" placeholder="Search...." class="header-input">
     </header>
+    <!--Card-->
     <div class="options-container">
+      <div v-for ="quiz in quizes" :key= "quiz.id" class="card">
+        <img
+          :src="quiz.img"
+          alt="math img" class="card-img">
+        <div class="card-text">
+          <h2 class="card-title">{{quiz.name}}</h2>
+          <p class="card-paragraph"> {{quiz.questions.length}} questions </p>
 
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,9 +48,45 @@
 }
 
 .header-input {
- border: none;
- background-color: rgba(235, 235, 235, 0.64);
- padding: 10px;
- border-radius: 5px;
+  border: none;
+  background-color: rgba(235, 235, 235, 0.64);
+  padding: 10px;
+  border-radius: 5px;
 }
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/*Card*/
+
+.card {
+  width: 310px;
+  overflow: hidden;
+  border-radius: 2%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0.15, 0.45);
+  margin-bottom: 35px;
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: #E7EEFB;
+  border: 2px solid rgba(235, 235, 235, 0.64);
+}
+
+.card-img {
+  width: 100%;
+  height: 190px;
+  margin: 0;
+}
+
+.card-text {
+  padding: 0 5px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-paragraph {}
 </style>
