@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 const {quiz} = defineProps(['quiz'])
+const router = useRouter()
+const navigateToQuiz = () => {
+  router.push(`/quiz/${quiz.id}`)
+}
 </script>
 
 <template>   
   
-<div class="card">
+<div class="card" @click="navigateToQuiz" >
     <img alt="math img" class="card-img" :src="quiz.img">
     <div class="card-text">
       <h2 class="card-title">{{ quiz.name }}</h2>
