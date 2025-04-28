@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import q from '..quizes.json';
+import q from '../data/quizes.json';
 import {ref, watch} from "vue";
 import Card from '../components/Card.vue'
 
