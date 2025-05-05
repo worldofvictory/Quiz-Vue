@@ -48,5 +48,5 @@ const navigateToQuiz = () => {
   font-weight: bold;
 }
 
-.card-paragraph {}
+
 </style>
